@@ -1,3 +1,8 @@
 # Profiling IoT botnet activty (Probot)
 Project Information:
-## Project Outline:
+## Project Outline
+###Services
+- Attack Honeypots:
+- IP address reputation:
+- BGP routing:
+- DNS:
