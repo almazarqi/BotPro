@@ -1,2 +1,2 @@
-# IoT_Botnet
+# Profiling IoT botnet activty (Probot)
 Project Information:
