@@ -6,6 +6,6 @@ Project Information:
 #### - IP address reputation:
 - Spamhaus
 - Barracuda
-- BGP routing:
-- DNS:
-- Geographic distribution:
+#### - BGP routing:
+#### - DNS:
+#### - Geographic distribution:
