@@ -4,6 +4,7 @@ Project Information:
 #### Services
 - Attack Honeypots:
 - IP address reputation:
+Spamhaus
 - BGP routing:
 - DNS:
 - Geographic distribution:
