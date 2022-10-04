@@ -3,8 +3,9 @@ Project Information:
 ## Project Outline
 ### Services
 #### - Attack Honeypots:
-- IP address reputation:
-Spamhaus
+#### - IP address reputation:
+- Spamhaus
+- Barracuda
 - BGP routing:
 - DNS:
 - Geographic distribution:
