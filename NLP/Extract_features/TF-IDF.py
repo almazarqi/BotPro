@@ -29,4 +29,4 @@ vectorizer = TfidfVectorizer(max_features=None, use_idf = True, ngram_range=(1,3
 prepocessedDocs_1 = prepocessedDocs_2[:]
 X = vectorizer.fit_transform(prepocessedDocs_1)
 print(X.shape) # check shape of the document-term matrix
-terms = vectorizer.get_feature_names() 
+terms = vectorizer.get_feature_names()
