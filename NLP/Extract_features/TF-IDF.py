@@ -8,6 +8,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 data = pd.read_csv('Paylodas.csv')
 data  = data.drop_duplicates(subset='event_id', keep="first")
 
+
 commands = data.payload.tolist()
 len(commands)
 commands[0]
