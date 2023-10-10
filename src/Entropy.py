@@ -21,6 +21,7 @@ df = df.sort_values(by=['Entropy'], ascending=True)
 
 
 
+
 plt.figure(figsize=[14,7])
 plt.plot(df['Entropy'], df['count'],drawstyle='steps-pre')
 #plt.title('title name',fontsize=26)
