@@ -1,0 +1,45 @@
+# Use a Python base image
+FROM python:3.8-slim-buster
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the display files
+COPY app3_display_results.py app3_display_results.py
+COPY entropy_calculator.py entropy_calculator.py
+COPY map_test.py map_test.py
+COPY map.html map.html
+COPY Bot_Maps.html Bot_Maps.html
+COPY graph_and_histogram.html graph_and_histogram.html
+
+COPY create_map.py create_map.py
+COPY display_map.py display_map.py
+COPY histogram.html histogram.html
+COPY ASes.html ASes.html
+
+COPY bot_loaders4.html bot_loaders2.html
+COPY top_nodes_graph2.html top_nodes_graph2.html
+
+COPY bot_loaders4.html bot_loaders4.html
+COPY Top_Countries_Bar_Chart.html Top_Countries_Bar_Chart.html
+
+COPY ASes_top_vertical_color.html ASes_top_vertical_color.html
+COPY degree_centrality_table.html degree_centrality_table.html
+
+COPY All_ASes.html COPY All_ASes.html
+COPY top_ASes.html COPY top_ASes.html
+# Install dependencies
+COPY requirements.txt requirements.txt
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Expose the necessary port
+EXPOSE 8501
+
+# Run the display script
+# RUN python create_map.py
+
+
+
+CMD ["streamlit", "run", "display_map.py"]
+
