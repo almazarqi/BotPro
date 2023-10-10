@@ -6,6 +6,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 
+
 num_clusters = 6
 km = KMeans(n_clusters=num_clusters)
 km.fit(X)
