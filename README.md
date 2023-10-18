@@ -21,11 +21,13 @@ Follow these steps to set up BotPro on your local machine:
 - Python 3.7 or higher
 - pip (Python package manager)
 
+- 
 ### 1. Clone the Repository
 
-```bash
+bash
 git clone https://github.com/almazarqi/BotPro.git
 cd BotPro
+
 
 ### 2. Create a Virtual Environment
 # Create a virtual environment
