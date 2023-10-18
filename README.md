@@ -27,6 +27,21 @@ Follow these steps to set up BotPro on your local machine:
 git clone https://github.com/almazarqi/BotPro.git
 cd BotPro
 
+### 2. Create a Virtual Environment
+# Create a virtual environment
+python -m venv venv
+
+# Activate the virtual environment
+# On Windows
+venv\Scripts\activate
+# On macOS and Linux
+source venv/bin/activate
+
+
+3. Install Dependencies
+
+pip install -r requirements.txt
+
 
 
 #### Dataset:
