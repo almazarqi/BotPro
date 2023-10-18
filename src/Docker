@@ -1,0 +1,13 @@
+# Use a Python base image
+FROM python:3.8-slim-buster
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the display files
+COPY app3_display_results.py app3_display_results.py
+COPY entropy_calculator.py entropy_calculator.py
+COPY map_test.py map_test.py
+COPY map.html map.html
+COPY Bot_Maps.html Bot_Maps.html
+COPY graph_and_histogram.html graph_and_histogram.html
