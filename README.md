@@ -17,7 +17,7 @@ BotPro is an open-source cybersecurity dashboard for profiling IoT botnet activi
 Follow these steps to set up BotPro on your local machine:
 
 ### Prerequisites
-
+- Docker (https://www.docker.com/) (Make sure Docker is installed and running)
 - Python 3.7 or higher
 - pip (Python package manager)
 
