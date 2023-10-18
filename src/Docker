@@ -11,3 +11,9 @@ COPY map_test.py map_test.py
 COPY map.html map.html
 COPY Bot_Maps.html Bot_Maps.html
 COPY graph_and_histogram.html graph_and_histogram.html
+
+
+COPY create_map.py create_map.py
+COPY display_map.py display_map.py
+COPY histogram.html histogram.html
+COPY ASes.html ASes.html
