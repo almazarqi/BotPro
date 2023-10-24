@@ -38,6 +38,8 @@ venv\Scripts\activate
 # On macOS and Linux
 source venv/bin/activate
 
+### 2. Run RabbitMQ Container
+docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management
 
 ### 3. Install Dependencies
 
