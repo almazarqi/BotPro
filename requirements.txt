@@ -1,1 +1,10 @@
-
+streamlit
+pymongo
+matplotlib
+entropy
+pika
+ipwhois
+streamlit-folium==0.4.0
+folium
+numpy
+geopandas
