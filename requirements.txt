@@ -1,10 +1,13 @@
-streamlit
-pymongo
-matplotlib
-entropy
-pika
-ipwhois
-streamlit-folium==0.4.0
-folium
-numpy
-geopandas
+from pymongo import MongoClient
+import numpy
+import pandas as pd
+import subprocess
+import ast
+import os
+import pika
+import json
+from bokeh.io import output_file, show
+from bokeh.models import (BoxZoomTool, Circle, HoverTool, MultiLine, Plot, Range1d, ResetTool)
+from bokeh.palettes import Spectral4, Blues8
+from bokeh.plotting import from_networkx
+import networkx as nx
