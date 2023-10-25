@@ -1,0 +1,19 @@
+texts = df["payload"]
+urls = []
+
+for text in texts:
+    match1 = re.finditer(r"(https?[:\\/][^\s;|]+)", text) # match url starts with http
+    match2 = re.finditer(r"wget\s(\d+[^\s;|]+)", text) # match sentence start with wget and number
+    found = False  # flag to check if any match is found
+    for m in match1:
+        if not found:
+            found = True  # set flag
+            urls.append(m.group(1))
+    for m in match2:
+        if not found:
+            found = True # set flag
+            urls.append(m.group(1))
+    if not found:
+        urls.append("No URL Found")
+
+df["Loader_Server"] = urls
