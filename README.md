@@ -28,8 +28,17 @@ git clone https://github.com/almazarqi/BotPro.git
 cd BotPro
 
 
-### 2. Create a Virtual Environment
+### 2.Features & Benefits
+A. Scanning analysis:
+B. Bot Loaders:
+C. AS level:
+D. Blacklists:
+E. Infections: 
+
+
 # Create a virtual environment
+### 3. Create a Virtual Environment
+
 python -m venv venv
 
 # Activate the virtual environment
