@@ -1,0 +1,91 @@
+from pymongo import MongoClient
+import subprocess
+import ast
+import os
+import pika
+import json
+
+def process_caida_message(channel, method, properties, body):
+    message = json.loads(body)
+    asn_number = message.get("ASN")
+    asn_number_str = str(asn_number)
+
+    # Set up MongoDB client
+    mongo_uri = os.environ.get("MONGO_URI", "mongodb://localhost:27018")
+    client = MongoClient(mongo_uri)
+    db = client["botnet"]
+    collection = db["CAIDA"]
+
+    # Run the asrank-download-asn.py script for the given ASN_Number
+    result = subprocess.check_output(["python3", "asrank-download-asn.py",asn_number]).decode("utf-8")
+
+
+    # Parse the result and save it in the CAIDA collection
+    try:
+        result_dict = ast.literal_eval(result)
+        data = result_dict.get("data")
+        asn_data = data.get("asn")
+
+        parsed_result = {
+            "ASN_Number": asn_number,
+            "asn": asn_data.get("asn"),
+            "asnName": asn_data.get("asnName"),
+            "rank": asn_data.get("rank"),
+            "organization": {
+                "orgId": asn_data["organization"].get("orgId"),
+                "orgName": asn_data["organization"].get("orgName")
+            },
+            "cliqueMember": asn_data.get("cliqueMember"),
+            "seen": asn_data.get("seen"),
+            "longitude": asn_data.get("longitude"),
+            "latitude": asn_data.get("latitude"),
+            "cone": {
+                "numberAsns": asn_data["cone"].get("numberAsns"),
+                "numberPrefixes": asn_data["cone"].get("numberPrefixes"),
+                "numberAddresses": asn_data["cone"].get("numberAddresses")
+            },
+            "country": {
+                "iso": asn_data["country"].get("iso"),
+                "name": asn_data["country"].get("name")
+            },
+            "asnDegree": {
+                "provider": asn_data["asnDegree"].get("provider"),
+                "peer": asn_data["asnDegree"].get("peer"),
+                "customer": asn_data["asnDegree"].get("customer"),
+                "total": asn_data["asnDegree"].get("total"),
+                "transit": asn_data["asnDegree"].get("transit"),
+                "sibling": asn_data["asnDegree"].get("sibling")
+            },
+            "announcing": {
+                "numberPrefixes": asn_data["announcing"].get("numberPrefixes"),
+                "numberAddresses": asn_data["announcing"].get("numberAddresses")
+            }
+        }
+
+        # Insert the parsed result into the CAIDA collection
+        collection.insert_one(parsed_result)
+
+        print(f"CAIDA data for ASN {asn_number} stored in the 'CAIDA' collection.")
+        
+    except SyntaxError:
+        print(f"Error parsing result for ASN {asn_number}")
+        return
+
+# Set up RabbitMQ connection
+rabbitmq_uri = os.environ.get("RABBITMQ_URI", "amqp://localhost:5672/")
+connection = pika.BlockingConnection(pika.URLParameters(rabbitmq_uri))
+channel = connection.channel()
+
+# Declare the message queue for CAIDA Server queries
+caida_server_query_queue = "CAIDA_Server_query_queue"
+channel.queue_declare(queue=caida_server_query_queue)
+
+# Set up a consumer to process incoming messages from the CAIDA_Server_query_queue
+channel.basic_consume(
+    queue=caida_server_query_queue,
+    on_message_callback=process_caida_message,
+    auto_ack=True
+)
+
+print("Waiting for messages. To exit, press CTRL+C")
+channel.start_consuming()
