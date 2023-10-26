@@ -21,6 +21,7 @@ Follow these steps to set up BotPro on your local machine:
 - Python 3.7 or higher
 - pip (Python package manager)
 - RabbitMQ for message queuing and communication between components of this project. Downloading instructions at [RabbitMQ Downloads](https://www.rabbitmq.com/download.html).
+- MongoDB by referring to the installation instructions provided at [MongoDB Installation Guide](https://docs.mongodb.com/manual/installation/).
 
 ### 1. Clone the Repository
 
