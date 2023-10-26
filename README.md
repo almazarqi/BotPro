@@ -18,6 +18,7 @@ Follow these steps to set up BotPro on your local machine:
 
 ### Prerequisites
 - Docker (https://www.docker.com/) (Make sure Docker is installed and running)
+- MongoDB for storing and managing data, can be installed by referring to the installation instructions provided at [MongoDB Installation Guide](https://docs.mongodb.com/manual/installation/).
 - Python 3.7 or higher
 - pip (Python package manager)
 - RabbitMQ for message queuing and communication between components of this project. Downloading instructions at [RabbitMQ Downloads](https://www.rabbitmq.com/download.html).
