@@ -1,4 +1,3 @@
-import geoip2.database
 import json
 import os
 import pika
@@ -25,36 +24,23 @@ with geoip2.database.Reader(database_file) as reader:
     source_ips = list(source_ips_cursor)
 
     # Define the RabbitMQ exchange name
-    exchange_name = "your_exchange_name"  # Replace with your actual exchange name
+    exchange_name = "Geolocation"  # Replace with your actual exchange name
 
     # Loop through distinct source IP addresses and publish data
     for ip_address in source_ips:
-        # Perform IP address lookup using MaxMind GeoIP2
-        response = reader.city(ip_address)
-
-        # Process the response (customize as needed)
-        city_name = response.city.name
-        country_name = response.country.name
-        latitude = response.location.latitude
-        longitude = response.location.longitude
-
-        # Create a message with the data to publish
+        # Create a message with the IP address
         message = {
-            "ip_address": ip_address,
-            "city_name": city_name,
-            "country_name": country_name,
-            "latitude": latitude,
-            "longitude": longitude
+            "ip_address": ip_address
         }
 
         # Publish the message to the RabbitMQ exchange
         channel.basic_publish(
             exchange=exchange_name,
-            routing_key="",
+            routing_key="Geolocation_route",
             body=json.dumps(message)
         )
 
-        print(f"Published IP data for: {ip_address}")
+        print(f"Published IP address: {ip_address}")
 
 # Close the RabbitMQ connection
 connection.close()
