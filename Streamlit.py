@@ -99,9 +99,70 @@ if st.sidebar.button("ASes Analysis"):
 if st.sidebar.button("Blacklists"):
     st.header("Blacklist")
     # Load the Blacklist content (replace with appropriate file path)
-    blacklist_html_file_path = "blacklist.html"
+    blacklist_html_file_path = "Four_blacklists.html"
     with open(blacklist_html_file_path, "r", encoding='utf-8') as blacklist_html_file:
         blacklist_html_content = blacklist_html_file.read()
 
     # Display the HTML content for the Blacklist
     components.html(blacklist_html_content, width=800, height=600)
+
+
+
+
+
+
+# Button to display the "DNS" option
+if st.sidebar.button("DNS"):
+    st.header("DNS")
+    # Load the Blacklist content (replace with appropriate file path)
+    blacklist_html_file_path = "rDNS_Top_Bar_Chart.html"
+    with open(blacklist_html_file_path, "r", encoding='utf-8') as blacklist_html_file:
+        blacklist_html_content = blacklist_html_file.read()
+
+    # Display the HTML content for the Blacklist
+    components.html(blacklist_html_content, width=800, height=600)
+
+
+# Button to display the "Scanning activity" option
+if st.sidebar.button("Scanning activity"):
+    st.header("Scanning activity")
+    
+    # Create two columns for the first row of HTML content
+    col1, col2 = st.columns(2)
+# Adjust spacing between components
+    col1, col2 = st.columns((2, 2.8))
+    
+    with col1:
+        # Load and display the Top Port Sequences content
+        top_port_sequences_html_file_path = "Top_Port_Sequences.html"
+        with open(top_port_sequences_html_file_path, "r", encoding='utf-8') as file:
+            top_port_sequences_html_content = file.read()
+        components.html(top_port_sequences_html_content, width= 750, height=400)
+
+    with col2:
+        # Load and display the Top Source IPs content
+        top_source_ips_html_file_path = "Top_Source_IPs.html"
+        with open(top_source_ips_html_file_path, "r", encoding='utf-8') as file:
+            top_source_ips_html_content = file.read()
+        components.html(top_source_ips_html_content, width=750, height=400)
+    
+    # Create two columns for the second row of HTML content
+    col3, col4 = st.columns(2)
+# Adjust spacing between components
+    col3, col4 = st.columns((2, 2.8))
+
+    with col3:
+        # Load and display the Filtered Sorted Entropy Unique Ports Step Line Chart
+        filtered_sorted_entropy_file_path = "Filtered_Sorted_Entropy_Unique_Ports_Step_Line_Chart.html"
+        with open(filtered_sorted_entropy_file_path, "r", encoding='utf-8') as file:
+            filtered_sorted_entropy_html_content = file.read()
+        components.html(filtered_sorted_entropy_html_content, width=750, height=400)
+
+    with col4:
+        # Load and display the Entropy Histogram LogScale
+        entropy_histogram_file_path = "Entropy_Histogram_LogScale.html"
+        with open(entropy_histogram_file_path, "r", encoding='utf-8') as file:
+            entropy_histogram_html_content = file.read()
+        components.html(entropy_histogram_html_content, width= 750, height=400)
+
+
