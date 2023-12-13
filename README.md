@@ -34,7 +34,7 @@ cd BotPro
 ### 2.Features & Benefits
 A. Scanning analysis: shows the scanning behavior of IoT botnets by analyzing real-world data collected through BotPro.
 
-B. Bot Loaders:  processes the payload structures to profile IoT botnet loaders that were used in the initial stages of an infection. It resposible to detect teh bot loaders and related to malware varaients.
+B. Bot Loaders:  processes the payload structures to profile IoT botnet loaders that were used in the initial stages of an infection. It resposible to detect the bot loaders and related to malware varaients.
 
 C. AS level: conduct a comprehensive AS-level analysis of IoT botnet propagation using the measurement infrastructure and shows the influence of AS structural properties on the spread and tolerance of IoT botnet activities.  It operates at the AS- level, and provides a macroscopic view of IoT botnet activities and their origine.
 
@@ -64,7 +64,7 @@ pip install -r requirements.txt
 
 
 #### Dataset:
-The first layer of our proposed framework aims to build a real ground truth data. In order to build such data, it is essential to operate with Open-source intelligence (OSINT) feeds that presents real IoT-based botnets traffic. Globally distributed honeypots has been utilized to simulate any vulnerabilities which can easily be compromised by malicious actors. Real malicious events, including scanning and infections can be collected by monitoring such honeypots.
+BotPro aims to build a real ground truth data, and it operates with Open-source intelligence (OSINT) feeds that presents real IoT-based botnets traffic. Globally distributed honeypots has been utilized to simulate any vulnerabilities which can easily be compromised by malicious actors. Real malicious events, including scanning and infections were collected by monitoring such honeypots.
 
 ## External services
 #### - Attack Honeypots:
