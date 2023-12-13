@@ -40,7 +40,7 @@ C. AS level: conduct a comprehensive AS-level analysis of IoT botnet propagation
 
 D. Blacklists: leverages  widely-used IP blacklists and  evaluate their effeciency in capturing IoT botnet activity.
 
-E. Infections: analyze the nature and types of malware deployed in botnet activities, nad provides insights into how infections spread and their impact.
+E. Infections: analyze the nature and types of malware deployed in botnet activities, and provides insights into how infections spread and their impact.
 
 
 # Create a virtual environment
