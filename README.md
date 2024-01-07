@@ -96,9 +96,13 @@ BotPro utilizes RabbitMQ for message queuing, which involves publishers and cons
 
 ## Features & benefits
  **A. Scanning analysis:** shows the scanning behavior of IoT botnets by analyzing real-world data collected through BotPro.
+
  **B. Bot loaders:**  processes the payload structures to profile IoT botnet loaders that were used in the initial stages of an infection. It resposible to detect the bot loaders and related to malware varaients.
+
  **C. AS level:** conduct a comprehensive AS-level analysis of IoT botnet propagation using the measurement infrastructure and shows the influence of AS structural properties on the spread and tolerance of IoT botnet activities.  It operates at the AS- level, and provides a macroscopic view of IoT botnet activities and their origine.
+ 
  **D. Blacklists:** leverages  widely-used IP blacklists and  evaluate their effeciency in capturing IoT botnet activity.
+ 
  **E. Infections:** analyse the nature and types of malware deployed in botnet activities, and provides insights into how infections spread and their impact.
 
 
