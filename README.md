@@ -87,12 +87,12 @@ BotPro utilizes RabbitMQ for message queuing, which involves publishers and cons
 - **Publisher**  (`CAIDA_publisher.py`):  publishes requests to the RabbitMQ queue, looking for specfic AS details from the CAIDA ASRank API.
 - **Consumer** (`CAIDA_consumer.py`): retrieves the requests from the RabbitMQ queue and interacts with the CAIDA ASRank API to acquire the AS information.
 
-#### DNS
+#### DNS:
 - **Publisher** (`DNS_publisher.py`): publishes IP addresses to a RabbitMQ queue for DNS lookups. The script sends requests to resolve IP addresses to their respective DNS.
 
 - **Consumer** (`DNS_consumer.py`): retrieves IP address lookup requests from the RabbitMQ queue and performs DNS queries. It processes the responses, extracting PTR records and TTL values.
 
-#### Shadowserver 
+#### Shadowserver: 
 
 - **Publisher** (`Shadowserver_publisher.py`): sends ASN data to a RabbitMQ queue, setting up API requests for the Shadowserver API to get information about the advertised IP prefixes for each ASN.
 - **Consumer** (`Shadowserver_consumer.py`): retrieves ASN lookup requests from the RabbitMQ queue and interacts with the Shadowserver API. It processes the responses to extract information, including prefix count and associated prefixes for each ASN.
