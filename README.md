@@ -169,6 +169,6 @@ integrates geographic data such as MaxMind to visualise and trace the geographic
 
 <figure>
   <img src="images/Blacklists_Analysis.png" alt="Example Image" style="width: 75%; height: auto;"/>
-  <figcaption> Snapshot showing the capabilities BotPro in assessing the effectiveness of widely used IP blacklists in capturing IoT botnet activity using different matrix.
+  <figcaption> Snapshot showing the capabilities of BotPro in assessing the effectiveness of widely used IP blacklists in capturing IoT botnet activity using different matrices.
 </figcaption>
 </figure>
