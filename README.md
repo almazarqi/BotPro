@@ -147,5 +147,5 @@ integrates geographic data such as MaxMind to visualise and trace the geographic
 
 <figure>
   <img src="images/Bot_loaders_analysis.png" alt="Example Image" style="width: 75%; height: auto;"/>
-  <figcaption> Snapshot of the BotPro dashboard for tracking bot loaders and de- tecting super nodes</figcaption>
+  <figcaption> Snapshot of the BotPro dashboard for tracking bot loaders and detecting super nodes</figcaption>
 </figure>
