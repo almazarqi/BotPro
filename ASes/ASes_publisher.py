@@ -8,7 +8,7 @@ import pika
 mongo_uri = os.environ.get("MONGO_URI", "mongodb://localhost:27018")
 client = MongoClient(mongo_uri)
 db = client["botnet"]
-collection = db["data2"]
+collection = db["Honeypots"]
 
 # Set up RabbitMQ connection
 rabbitmq_uri = os.environ.get("RABBITMQ_URI", "amqp://localhost:5672/")
