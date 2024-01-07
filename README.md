@@ -1,82 +1,98 @@
 # Profiling IoT botnet activty (BotPro)
 ### Project Information:
 
-The highly heterogeneous nature of IoT devices and their broad deployments have resulted in the emergence of numerous security issues and measurement-based difficulties, which strongly impede the collection, analysis, and correlation of IoT-centric data. Therefore, it is significantly important to build an empirical ground truth data and perform a macroscopic measurements analysis in order to adequately profile and track the activity of IoT botnet the wild. 
+The highly heterogeneous nature of IoT devices and their broad deployments has resulted in numerous security issues and measurement-based difficulties, strongly impeding the collection, analysis, and correlation of IoT-centric data. Therefore, it is essential to build ground truth data and perform macroscopic measurement analysis in order to adequately profile and track the activity of IoT botnets in the wild.
 
 
 -----------------
 
 # BotPro Analysis Dashboard
 
-BotPro is an open-source cybersecurity dashboard for profiling IoT botnet activity. This tool offers a range of features and visualizations to help you analyze and understand the behavior of IoT botnets.
+BotPro is an open-source cybersecurity dashboard for profiling IoT botnet activity. This tool offers a range of features and visualisations to help analyse and understand the behaviour of IoT botnets.
 
-![BotPro Screenshot](screenshot.png)
-
-## Installation
+# BotPro Installation Guide
 
 Follow these steps to set up BotPro on your local machine:
 
-### Prerequisites
-- Docker (https://www.docker.com/) (Make sure Docker is installed and running)
-- MongoDB for storing and managing data, can be installed by referring to the installation instructions provided at [MongoDB Installation Guide](https://docs.mongodb.com/manual/installation/).
-- Python 3.7 or higher
-- pip (Python package manager)
-- RabbitMQ for message queuing and communication between components of this project. Downloading instructions at [RabbitMQ Downloads](https://www.rabbitmq.com/download.html).
-- MongoDB by referring to the installation instructions provided at [MongoDB Installation Guide](https://docs.mongodb.com/manual/installation/).
+## Prerequisites
+- **Docker**: Ensure Docker is installed and running. [Install Docker](https://www.docker.com/)
+- **MongoDB**: Used for storing and managing data. [MongoDB Installation Guide](https://docs.mongodb.com/manual/installation/)
+- **Python 3.7** or higher
+- **pip**: Python package manager
+- **RabbitMQ**: For message queuing and communication between components. [Download RabbitMQ](https://www.rabbitmq.com/download.html)
+
+## Installation Steps
 
 ### 1. Clone the Repository
-
-bash
+```bash
 git clone https://github.com/almazarqi/BotPro.git
 cd BotPro
 
-
-### 2.Features & Benefits
-A. Scanning analysis: shows the scanning behavior of IoT botnets by analyzing real-world data collected through BotPro.
-
-B. Bot Loaders:  processes the payload structures to profile IoT botnet loaders that were used in the initial stages of an infection. It resposible to detect the bot loaders and related to malware varaients.
-
-C. AS level: conduct a comprehensive AS-level analysis of IoT botnet propagation using the measurement infrastructure and shows the influence of AS structural properties on the spread and tolerance of IoT botnet activities.  It operates at the AS- level, and provides a macroscopic view of IoT botnet activities and their origine.
-
-D. Blacklists: leverages  widely-used IP blacklists and  evaluate their effeciency in capturing IoT botnet activity.
-
-E. Infections: analyze the nature and types of malware deployed in botnet activities, and provides insights into how infections spread and their impact.
-
-
 # Create a virtual environment
-### 3. Create a Virtual Environment
-
 python -m venv venv
+```
 
-# Activate the virtual environment
-# On Windows
+---
+
+
+### 2.  Create and Activate a Virtual Environmen
+
+Create:
+```bash
+python -m venv venv
+```
+
+
+Activate (Windows):
+```bash
 venv\Scripts\activate
-# On macOS and Linux
+```
+
+
+Activate (macOS and Linux):
+```bash
 source venv/bin/activate
+```
 
-### 2. Run RabbitMQ Container
+### 3. Run RabbitMQ Container
+```bash
 docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management
+```
 
-### 3. Install Dependencies
-
+### 4.Install Dependencies
+```bash
 pip install -r requirements.txt
+```
+
+## Features & Benefits
+ **A. Scanning analysis:** shows the scanning behavior of IoT botnets by analyzing real-world data collected through BotPro.
+
+ **B. Bot Loaders:**  processes the payload structures to profile IoT botnet loaders that were used in the initial stages of an infection. It resposible to detect the bot loaders and related to malware varaients.
+
+ **C. AS level:** conduct a comprehensive AS-level analysis of IoT botnet propagation using the measurement infrastructure and shows the influence of AS structural properties on the spread and tolerance of IoT botnet activities.  It operates at the AS- level, and provides a macroscopic view of IoT botnet activities and their origine.
+
+ **D. Blacklists:** leverages  widely-used IP blacklists and  evaluate their effeciency in capturing IoT botnet activity.
+
+ **E. Infections:** analyse the nature and types of malware deployed in botnet activities, and provides insights into how infections spread and their impact.
 
 
 
-#### Dataset:
-BotPro aims to build a real ground truth data, and it operates with Open-source intelligence (OSINT) feeds that presents real IoT-based botnets traffic. Globally distributed honeypots has been utilized to simulate any vulnerabilities which can easily be compromised by malicious actors. Real malicious events, including scanning and infections were collected by monitoring such honeypots.
+
+
+#### Dataset and external services:
+BotPro builds real ground truth data from Open-source intelligence (OSINT) feeds, featuring real IoT-based botnets traffic. This includes monitoring globally distributed honeypots for real malicious events.
+
+
 
 ## External services
 #### - Attack Honeypots:
 collect cyber threat intelligence (CTI) data generated by attack honeypots. The honeypots detect active botnets by emulating hundreds of vulnerable IoT devices, including IP cameras, smart home devices and consumer-grade routers frequently targeted by botnets that scan the internet and engage in malicious activity.
 #### - IP address reputation:
-Four different IP global IP blacklist databases used in this work including: (i) Spamhaus, (ii) Barracuda, (iii) Spam Open Relay Blocking System (SORBS, and (iv) Composite Blocking List (CBL).
+four different IP global IP blacklist databases used including: (i) Spamhaus, (ii) Barracuda, (iii) Spam Open Relay Blocking System (SORBS, and (iv) Composite Blocking List (CBL).
 
 #### - BGP routing:
-provide information about the AS-level connectivity of the Internet. It assess the impact of botnets on the overall Internet infrastructure.
+Provide information about the AS-level connectivity of the Internet. It assess the impact of botnets on the overall Internet infrastructure.
 #### - DNS: 
 leverages DNS data to resolve domain names associated with suspicious IP addresses, and shows the bhaviour of botnet in locating the C&C servers.
 #### - Geographic distribution: 
 integrates geographic data such as MaxMind to visualise and trace the geographic origins of IoT botnet activities. It aids in identifying the source regions of attacks.
-
-
