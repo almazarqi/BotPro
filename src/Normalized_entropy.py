@@ -9,9 +9,6 @@ client = MongoClient(mongo_uri)
 db = client["botnet"]
 collection = db["shannon_ports"]
 
-# Define the minimum Entropy threshold and maximum target_port count for filtering
-min_entropy_threshold = 0.1  # Adjust as needed
-max_target_port_count = 45  # Adjust as needed
 
 # Retrieve data from MongoDB
 data = list(collection.find({"Entropy": {"$gt": min_entropy_threshold}}, {"_id": 0, "Entropy": 1, "target_port": 1}))
