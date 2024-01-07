@@ -27,10 +27,6 @@ def home_button_click():
 if st.sidebar.button("Home"):
     home_button_click()
 
-
-
-
-
 # Button to display the "Map" option with a cyber security label
 if st.sidebar.button("Geographic Distribution"):
     st.header("")
@@ -160,11 +156,6 @@ if st.sidebar.button("Blacklists"):
     with col4:
         components.html(active_days_histogram_html_content, width=800, height=350)
 
-
-
-
-
-
 # Button to display the "DNS" option
 if st.sidebar.button("DNS"):
     st.header("DNS")
@@ -174,13 +165,10 @@ if st.sidebar.button("DNS"):
     with open("rDNS_Top_Bar_Chart.html", "r", encoding='utf-8') as rdns_html_file:
         rdns_html_content = rdns_html_file.read()
    
-
     # Load and display the TTL_value.html file in col2
     with open("TTL_value.html", "r", encoding='utf-8') as ttl_html_file:
         ttl_html_content = ttl_html_file.read()
    
-
-  
   # Adjust spacing between components
     col1, col2 = st.columns((2,2.5))
 
@@ -194,8 +182,6 @@ if st.sidebar.button("DNS"):
     with open("top_DNS_records.html", "r", encoding='utf-8') as top_dns_html_file:
         top_dns_html_content = top_dns_html_file.read()
     components.html(top_dns_html_content, width=800, height=700)
-
-
 
 # Button to display the "Scanning activity" option
 if st.sidebar.button("Scanning activity"):
@@ -238,8 +224,6 @@ if st.sidebar.button("Scanning activity"):
         with open(entropy_histogram_file_path, "r", encoding='utf-8') as file:
             entropy_histogram_html_content = file.read()
         components.html(entropy_histogram_html_content, width= 650, height=350)
-
-
 
 # Display home content if the flag is set
 if display_home_content:
