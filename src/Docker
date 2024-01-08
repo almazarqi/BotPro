@@ -5,15 +5,48 @@ FROM python:3.8-slim-buster
 WORKDIR /app
 
 # Copy the display files
-COPY app3_display_results.py app3_display_results.py
+
 COPY entropy_calculator.py entropy_calculator.py
-COPY map_test.py map_test.py
 COPY map.html map.html
 COPY Bot_Maps.html Bot_Maps.html
 COPY graph_and_histogram.html graph_and_histogram.html
 
-
-COPY create_map.py create_map.py
-COPY display_map.py display_map.py
-COPY histogram.html histogram.html
+COPY Dashboard.py Dashboard.py
 COPY ASes.html ASes.html
+
+COPY top_nodes_graph2.html top_nodes_graph2.html
+
+COPY bot_loaders.html bot_loaders.html
+COPY Top_Countries_Bar_Chart.html Top_Countries_Bar_Chart.html
+
+COPY ASes_top_vertical_color.html ASes_top_vertical_color.html
+COPY top_IP_URLs_degree_centrality.html top_IP_URLs_degree_centrality.html
+
+COPY AS_URL_IP_Top_Table.html AS_URL_IP_Top_Table.html
+
+COPY Active_Days_Histogram COPY Active_Days_Histogram
+
+COPY Top_Port_Sequences.html COPY Top_Port_Sequences.html
+COPY Top_Source_IPs.html COPY Top_Source_IPs.html
+COPY Entropy_Histogram_LogScale.html COPY Entropy_Histogram_LogScale.html
+COPY Filtered_Sorted_Entropy_Unique_Ports_Step_Line_Chart.html  COPY Filtered_Sorted_Entropy_Unique_Ports_Step_Line_Chart.html 
+
+
+COPY top_DNS_records.html COPY top_DNS_records.html
+COPY TTL_value.html COPY TTL_value.html
+
+COPY Beta_Distribution.htm COPY Beta_Distribution.html
+Copy coffecient_varation_online.html Copy coffecient_varation_online.html
+
+#COPY All_ASes.html COPY All_ASes.html
+#COPY top_ASes.html COPY top_ASes.html
+# Install dependencies
+COPY requirements.txt requirements.txt
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Expose the necessary port
+EXPOSE 8501
+
+CMD ["streamlit", "run", "Dashboard.py"]
+
